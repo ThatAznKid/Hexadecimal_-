@@ -85,5 +85,26 @@ public class Hexadecimal {
 	System.out.println (hexToDec ("1EF"));
 	System.out.println (decToHex (4392));
 	System.out.println (decToHex (495));
+	
+	Hexadecimal h1 = new Hexadecimal (5); 
+	Hexadecimal h2 = new Hexadecimal (5); 
+	Hexadecimal h3 = new Hexadecimal (7); 
+	
+	System.out.println ("Printing...");
+	System.out.println (h1); 
+	System.out.println (h2); 
+	System.out.println (h3); 
+	
+	System.out.println ("They equal?");
+	System.out.println (h1 == h2); 
+	System.out.println (h1 == h3); 
+	
+	System.out.println ("Check again if they're equal, man.");
+	System.out.println (h1.equals (h2)); 
+	System.out.println (h1.equals (h3)); 
+	
+	System.out.println ("Let's try comparing them...");
+	System.out.println (h1.compareTo (h2)); 
+	System.out.println (h1.compareTo (h3));
     }
 }
