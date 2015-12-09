@@ -8,6 +8,16 @@ public class Hexadecimal {
 	_hexNum = "0"; 
     } 
     
+    public Hexadecimal (int n) { 
+	_decNum = n; 
+	_hexNum = decToHex(n); 
+    } 
+
+    public Hexadecimal (String s) { 
+	_decNum = hexToDec (s); 
+	_hexNum = s; 
+    }
+
     public String toString() { 
 	return _hexNum; 
     } 
