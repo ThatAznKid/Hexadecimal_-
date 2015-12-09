@@ -21,7 +21,7 @@ public class Hexadecimal {
     public String toString() { 
 	return _hexNum; 
     } 
-    
+    /*
     public static String decToHex (int n) { 
         int holder = 0; 
 	int holder2 = 0;
@@ -60,7 +60,22 @@ public class Hexadecimal {
 	}
 	return total; 
     }
-
+*/
+    public static String decToHex( int n ) {
+	String retStr="";
+	while (n>0){
+	    retStr=HEXDIGITS.substring(n%16,n%16+1)+retStr;//Adds remainder to string
+	    n=n/16;//Sets n equal to quotient
+	}
+	return retStr;
+    }
+    public static int hexToDec( String s ) {
+	int retInt=0;
+	for (int x=0;x<s.length();x++){
+	    retInt+=(int)(HEXDIGITS.indexOf(s.substring(x,x+1).toUpperCase())*Math.pow(16,(s.length()-1-x)));//Multiplies each number by its proper power of 16
+	}
+	return retInt;  
+    }
     public int compareTo (Object other) { 
 	Hexadecimal cee = (Hexadecimal) other; 
 	int theirs = cee._decNum; 
