@@ -13,16 +13,29 @@ public class Hexadecimal {
     } 
     
     public static String decToHex (int n) { 
-	int holder = 0; 
+        int holder = 0; 
+	int holder2 = 0;
 	int number = n;
 	int count = 0;
-	while (holder < number) { 
-	    holder = (int)(Math.pow (16,count));
-	    System.out.println (Math.pow (16,count));
-	    count = count + 1;
+	String retStr = "";
+	while (number != 0) {
+	    while (holder < number) { 
+		count = count + 1;
+		holder = (int)(Math.pow (16,count));
+	    }
+	    holder = (int)(Math.pow (16,count-1)); 
+	    count = 0;
+	    holder2 = holder;
+	    holder = number / holder; 
+	    number = number % holder2;
+	    if (holder < 10) {
+		retStr = retStr + holder;
+	    }
+	    else {
+		retStr = retStr + HEXDIGITS.substring (holder,holder+1);
+	    }
 	}
-	holder = (int)(Math.pow (16,count-2)); 
-	return holder + "";
+	return retStr;
 	
     } 
 
@@ -59,6 +72,8 @@ public class Hexadecimal {
 
     public static void main (String[] args) { 
 	System.out.println (hexToDec ("1128"));
+	System.out.println (hexToDec ("1EF"));
 	System.out.println (decToHex (4392));
+	System.out.println (decToHex (495));
     }
 }
